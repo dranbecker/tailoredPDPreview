@@ -370,6 +370,31 @@
     }
     footer p { font-size: 13px; color: rgba(255,255,255,.25); }
 
+    /* ── PARTNER BAR ──────────────────────────────────────── */
+    .partner-bar {
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,.07);
+      padding: 18px 40px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .partner-inner {
+      display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .partner-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 1.2px;
+      text-transform: uppercase; color: #bbb; white-space: nowrap;
+    }
+    .partner-divider { color: #ddd; font-size: 20px; font-weight: 200; }
+    .partner-logo    { height: 30px; width: auto; display: block; }
+    .srh-logo        { height: 22px; }
+
+    /* ── EMERGENCY GRID ───────────────────────────────────── */
+    .emergency-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; margin-top: 64px;
+    }
+
     /* ── DATENSCHUTZ ──────────────────────────────────────── */
     .privacy-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -402,6 +427,35 @@
       .concept-split, .research-split { grid-template-columns: 1fr; gap: 40px; }
       .tab-panel.active { grid-template-columns: 1fr; }
       .stat-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Partner bar */
+      .partner-bar { padding: 14px 20px; gap: 16px; }
+      .partner-label { font-size: 10px; }
+      .partner-logo  { height: 24px; }
+      .srh-logo      { height: 18px; }
+
+      /* Emergency section */
+      .emergency-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .emergency-visual { max-width: 100%; padding: 32px 24px; }
+      .qr-mock { width: 110px; height: 110px; }
+
+      /* Open source callout */
+      .opensource-callout { padding: 28px 24px; }
+
+      /* Journey line dot */
+      .journey-line::before { left: 24px; }
+      .j-dot { width: 50px; height: 50px; font-size: 18px; }
+
+      /* Research split order: text first, code second */
+      .research-split { grid-template-columns: 1fr; }
+
+      /* Stat grid smaller on very small screens */
+      @media (max-width: 400px) {
+        .stat-grid { grid-template-columns: 1fr; }
+      }
     }
   </style>
 </head>
@@ -436,6 +490,20 @@
   </div>
   <div class="scroll-hint">↓</div>
 </section>
+
+<!-- ── PARTNER BAR ────────────────────────────────────────── -->
+<div class="partner-bar">
+  <div class="partner-inner">
+    <span class="partner-label">Ein Projekt von</span>
+    <img src="graphics/srh.png"
+         alt="SRH"
+         class="partner-logo srh-logo">
+    <span class="partner-divider">|</span>
+    <img src="graphics/New_plus%20buendig@300x.png"
+         alt="Parkinsonnetz RheinNeckar+"
+         class="partner-logo">
+  </div>
+</div>
 
 <!-- ── DAS PROBLEM ────────────────────────────────────────── -->
 <section id="problem" class="darker-section">
@@ -942,8 +1010,7 @@
       Keine App. Kein Login. Ein QR-Code.
     </p>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px;
-                align-items:center; margin-top:64px;" class="reveal">
+    <div class="emergency-grid reveal">
       <div>
         <div class="emergency-visual">
           <div class="qr-mock" aria-label="QR-Code Notfallkarte">
